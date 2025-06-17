@@ -1,6 +1,6 @@
-'use client';
-import { useState } from 'react';
-import { EthereumService } from '../lib/ethereum';
+"use client";
+import { useState } from "react";
+import { EthereumService } from "../lib/ethereum";
 
 export default function MetaMaskConnect() {
   const [account, setAccount] = useState<string | null>(null);
@@ -13,7 +13,7 @@ export default function MetaMaskConnect() {
       const address = await ethereum.connectWallet();
       setAccount(address);
     } catch (error) {
-      console.error('Connection failed:', error);
+      console.error("Connection failed:", error);
     }
     setLoading(false);
   };
@@ -27,12 +27,12 @@ export default function MetaMaskConnect() {
   }
 
   return (
-    <button 
+    <button
       onClick={connectWallet}
       disabled={loading}
       className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
     >
-      {loading ? 'Connecting...' : 'Connect MetaMask'}
+      {loading ? "Connecting..." : "Connect MetaMask"}
     </button>
   );
 }
